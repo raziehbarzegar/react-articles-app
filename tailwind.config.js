@@ -6,6 +6,7 @@ export default {
       colors: {
         primary: "#e2eafc",
         secondary: "#204166",
+        danger: "#D10004",
       },
       container: {
         center: true,
