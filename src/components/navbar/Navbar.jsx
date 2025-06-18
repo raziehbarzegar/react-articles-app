@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const navLinkClass =
-    "transition ease-in-out duration-300 text-sm text-secondary py-1 px-3 rounded font-medium hover:bg-secondary hover:text-primary";
+    "transition ease-in-out duration-300 text-sm md:text-md lg:text-lg text-secondary py-1 px-3 rounded font-medium hover:bg-secondary hover:text-primary";
 
   const menuItems = [
     {
@@ -48,6 +48,7 @@ function Navbar() {
             {
           menuItems.map((item, index)=>(<li key={index}><Link to={item.path} className={navLinkClass}>{item.name}</Link></li>))
          }
+         <li><a href="#articles" className={navLinkClass}>Articles</a></li>
           </ul>
         </nav>
       </div>
