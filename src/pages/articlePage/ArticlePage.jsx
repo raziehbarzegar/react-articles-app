@@ -1,24 +1,20 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Container from "../../components/container/Container";
+import { getArticle } from "../../services/api";
 
 function ArticlePage() {
   const [article, setArticle] = useState({});
   const params = useParams();
 
   useEffect(() => {
-    const fetchArticle = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8000/articles/${params.id}`
-        );
-        setArticle(response.data);
-      } catch (error) {
+    getArticle(params.id)
+      .then((response) => {
+        setArticle(response);
+      })
+      .catch((error) => {
         console.error("Error fetching article:", error);
-      }
-    };
-    fetchArticle();
+      });
   }, []);
   return (
     <div className="article pt-32">

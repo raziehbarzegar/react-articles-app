@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Input from "../../components/input/Input";
-import axios from "axios";
 import { useNavigate } from "react-router";
+import { postUser } from "../../services/api";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -17,9 +17,10 @@ function Register() {
   const navigate = useNavigate();
 
   const handleFormChange = (e) => {
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
   };
 
@@ -45,8 +46,7 @@ function Register() {
       const dataToSend = { ...formData };
       delete dataToSend.confirmPassword;
 
-      axios
-        .post("http://localhost:8000/users", dataToSend)
+      postUser(dataToSend)
         .then(() => {
           alert("Registration completed successfully!");
           navigate("/");
