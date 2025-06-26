@@ -9,16 +9,23 @@ function Navbar() {
 
   const menuItems = [
     {
-      name: 'Home', path: '/'
+      name: "Home",
+      path: "/",
     },
     {
-      name: 'Register', path:'/register'
+      name: "Articles",
+      path: "/articles",
     },
     {
-      name: 'About us', path:'/about-us'
-    }
-  ]
-  const handleNavbarClick = () => setIsNavbarOpen(prevState => !prevState);
+      name: "Register",
+      path: "/register",
+    },
+    {
+      name: "About us",
+      path: "/about-us",
+    },
+  ];
+  const handleNavbarClick = () => setIsNavbarOpen((prevState) => !prevState);
 
   return (
     <div className="navbar shadow-md md:pb-5 fixed w-full bg-white z-10">
@@ -37,18 +44,23 @@ function Navbar() {
             isNavbarOpen ? "opacity-100 max-h-96 pb-3 " : "opacity-0 max-h-0"
           }`}
         >
-         {
-          menuItems.map((item, index)=>(<Link key={index} to={item.path} className={navLinkClass}>{item.name}</Link>))
-         }
+          {menuItems.map((item, index) => (
+            <Link key={index} to={item.path} className={navLinkClass}>
+              {item.name}
+            </Link>
+          ))}
         </nav>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center">
           <ul className="flex flex-row gap-4 items-center">
-            {
-          menuItems.map((item, index)=>(<li key={index}><Link to={item.path} className={navLinkClass}>{item.name}</Link></li>))
-         }
-         <li><a href="#articles" className={navLinkClass}>Articles</a></li>
+            {menuItems.map((item, index) => (
+              <li key={index}>
+                <Link to={item.path} className={navLinkClass}>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
