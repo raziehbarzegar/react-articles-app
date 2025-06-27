@@ -2,6 +2,7 @@ import { useState } from "react";
 import Input from "../../components/input/Input";
 import { useNavigate } from "react-router";
 import { postUser } from "../../services/api";
+import Button from "../../components/button/Button";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -111,12 +112,9 @@ function Register() {
               error={errors.confirmPassword}
             />
             <div className="text-center w-full p-3 flex justify-center">
-              <button
-                className="text-lg text-primary text-center py-1 px-3 rounded font-semibold bg-secondary hover:text-secondary hover:bg-white transition-colors duration-500 my-3 ml-3 w-full"
-                disabled={isSubmitting}
-              >
+              <Button className="my-3 ml-3 w-full">
                 {isSubmitting ? "Registering..." : "Register"}
-              </button>
+              </Button>
             </div>
           </form>
         </div>

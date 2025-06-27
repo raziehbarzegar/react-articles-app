@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoMenuSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import Button from "../button/Button";
 
 function Navbar() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -45,23 +46,21 @@ function Navbar() {
           }`}
         >
           {menuItems.map((item, index) => (
-            <Link key={index} to={item.path} className={navLinkClass}>
-              {item.name}
-            </Link>
+            <Button variant="secondary">
+              <Link key={index} to={item.path}>
+                {item.name}
+              </Link>
+            </Button>
           ))}
         </nav>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center">
-          <ul className="flex flex-row gap-4 items-center">
-            {menuItems.map((item, index) => (
-              <li key={index}>
-                <Link to={item.path} className={navLinkClass}>
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav className="hidden md:flex items-center gap-x-3">
+          {menuItems.map((item, index) => (
+            <Button variant="secondary">
+              <Link to={item.path}>{item.name}</Link>
+            </Button>
+          ))}
         </nav>
       </div>
     </div>

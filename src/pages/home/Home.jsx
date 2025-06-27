@@ -4,6 +4,7 @@ import Article from "../../components/article/Article";
 import Header from "../../components/header/Header";
 import Container from "../../components/container/Container";
 import { getArticles } from "../../services/api";
+import Button from "../../components/button/Button";
 
 function Home() {
   const [articles, setArticles] = useState([]);
@@ -35,12 +36,9 @@ function Home() {
           </div>
 
           <div className="flex justify-center mt-5">
-            <Link
-              to={"/articles"}
-              className="text-lg text-primary text-center py-1 px-3 rounded font-semibold bg-secondary hover:text-secondary hover:bg-white transition-colors duration-500"
-            >
-              Discover more stories
-            </Link>
+            <Button variant="primary">
+              <Link to={"/articles"}>Discover more stories</Link>
+            </Button>
           </div>
         </Container>
       </div>

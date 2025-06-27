@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import introImg from "../../assets/images/intro.jpg";
+import Button from "../button/Button";
 
 function Header() {
   return (
@@ -19,12 +20,9 @@ function Header() {
               Publish your articles, share your expertise, and make an impact!
               <br />
             </p>
-            <Link
-              to={"/register"}
-              className="text-lg text-primary text-center py-1 px-3 rounded font-semibold bg-secondary hover:text-secondary hover:bg-white transition-colors duration-500"
-            >
-              Sign up & start writing!
-            </Link>
+            <Button variant="primary">
+              <Link to={"/register"}>Sign up & start writing!</Link>
+            </Button>
           </div>
         </div>
       </div>
